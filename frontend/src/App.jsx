@@ -1,35 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import FileUpload from "./components/FileUpload";
+import Dashboard from "./components/Dashboard";
+import ScanResults from "./components/ScanResults";
+import { Toaster } from "react-hot-toast";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white flex flex-col items-center justify-center p-6">
+      {/* Toast Notifications */}
+      <Toaster position="top-right" />
+
+      {/* Title */}
+      <h1 className="text-4xl font-bold mb-8 text-cyan-400 drop-shadow-lg animate-pulse">
+        🚀 Cyber Scanner
+      </h1>
+
+      {/* Upload Section */}
+      <div className="w-full max-w-2xl bg-gray-800/70 backdrop-blur-lg rounded-2xl shadow-xl p-6 border border-gray-700">
+        <FileUpload />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+
+      {/* Dashboard & Results */}
+      <div className="w-full max-w-5xl mt-10 grid md:grid-cols-2 gap-6">
+        <Dashboard />
+        <ScanResults />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
+
+
+
