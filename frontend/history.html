@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Scanner - History</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
+    <script src="js/history.js" defer></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">CyberScanner</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="scan.html">Scan</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="history.html" class="active">History</a></li>
+        </ul>
+    </nav>
+
+    <section class="history-section">
+        <h1>Past Scans</h1>
+        <table id="history-table">
+            <thead>
+                <tr>
+                    <th>File/Folder</th>
+                    <th>Scanned At</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Filled dynamically from backend -->
+            </tbody>
+        </table>
+    </section>
+</body>
+</html>

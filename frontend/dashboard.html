@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Scanner - Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/dashboard.js" defer></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">CyberScanner</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="scan.html">Scan</a></li>
+            <li><a href="dashboard.html" class="active">Dashboard</a></li>
+            <li><a href="history.html">History</a></li>
+        </ul>
+    </nav>
+
+    <section class="dashboard">
+        <h1>Scan Analytics</h1>
+        <div class="chart-container">
+            <canvas id="barChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="pieChart"></canvas>
+        </div>
+    </section>
+</body>
+</html>

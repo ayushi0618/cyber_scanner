@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Scanner - Scan</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
+    <script src="js/scan.js" defer></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">CyberScanner</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="scan.html" class="active">Scan</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="history.html">History</a></li>
+        </ul>
+    </nav>
+
+    <section class="scan-section">
+        <h1>Upload Your File or Folder</h1>
+        <form id="upload-form">
+            <input type="file" id="file-input" name="file" required>
+            <button type="submit" class="btn">Scan</button>
+        </form>
+        <div id="scan-results"></div>
+    </section>
+
+</body>
+</html>

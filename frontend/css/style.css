@@ -1,0 +1,111 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: #0d0d0d;
+    color: #eee;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: #111;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #0ff;
+}
+
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar .nav-links a {
+    color: #eee;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.navbar .nav-links a:hover,
+.navbar .nav-links .active {
+    color: #0ff;
+}
+
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: url('../assets/cyber-bg.jpg') center/cover no-repeat;
+}
+
+.hero-title {
+    font-size: 48px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.glow {
+    color: #0ff;
+    text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+}
+
+.btn {
+    padding: 10px 25px;
+    background: #0ff;
+    color: #111;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #00aabb;
+    transform: scale(1.05);
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 50px 20px;
+}
+
+.feature-card {
+    background: #111;
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.feature-card:hover {
+    transform: scale(1.05);
+}
+
+.chart-container {
+    width: 80%;
+    margin: 50px auto;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: #111;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #333;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px);}
+    to { opacity: 1; transform: translateY(0);}
+}
