@@ -1,17 +1,37 @@
 # Python
 __pycache__/
-*.pyc
+*.py[cod]
 *.pyo
 *.pyd
-*.sqlite3
-*.db
-.env
-.venv/
+*.env
+*.venv
+venv/
+ENV/
+env/
+*.egg-info/
+*.egg
+
+# Flask / general Python logs
 *.log
+instance/
+.webassets-cache
 
-# Node / frontend
-node_modules/
-dist/
-.vite/
+# VSCode / IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
 
-node_modules/
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Node / Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/package-lock.json
+frontend/.npm/
+
+# Uploads and temporary files (optional if you don't want to track)
+backend/uploads/

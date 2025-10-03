@@ -1,12 +1,50 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cyber Scanner</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cyber Scanner</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="particles"></canvas>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="logo">CyberScanner 🔥</div>
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#upload">Upload</a></li>
+        <li><a href="#history">History</a></li>
+    </ul>
+</nav>
+
+<!-- Home Section -->
+<section id="home" class="section home-section">
+    <h1>Welcome to Cyber Scanner</h1>
+    <p>Upload a ZIP of your project and let our scanner analyze it for vulnerabilities. 
+       Get instant results and track your scan history!</p>
+</section>
+
+<!-- Upload Section -->
+<section id="upload" class="section upload-section">
+    <h2>Upload & Scan</h2>
+    <input type="file" id="fileInput" accept=".zip">
+    <button id="uploadBtn">Upload & Scan</button>
+    <div class="progress-bar-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <p id="uploadMsg"></p>
+
+    <div id="resultsList" class="results-section"></div>
+</section>
+
+<!-- History Section -->
+<section id="history" class="section history-section">
+    <h2>Scan History</h2>
+    <div id="historyList"></div>
+</section>
+
+<script src="script.js"></script>
+</body>
 </html>
