@@ -1,54 +1,24 @@
-Cyber Scanner
+# Cyber Scanner 🔍
+
 A web-based cybersecurity scanning tool designed to scan and analyze targets with a modern frontend and backend architecture.
 
-Features
-Interactive Frontend: Built with modern web technologies (HTML, CSS, JavaScript) providing an enhanced UI for managing and viewing scan results.
+You can view the live deployment here: [Live Website](https://cyber-scanner.onrender.com)
 
-Backend Processing: Handles core security scanning logic and API requests.
+---
 
-Multi-language Stack: Combines Python, JavaScript, and HTML/CSS for a full-stack solution.
+## 🚀 Built With
 
-Tech Stack
-Frontend: HTML5, CSS3, JavaScript
+* **HTML5** (39.0%) - For page structure and semantics.
+* **Python** (28.0%) - For backend processing, core security scanning logic, and API handlers.
+* **JavaScript** (18.6%) - For interactive frontend components and dynamic behavior.
+* **CSS3** (14.4%) - For responsive layouts and modern UI styling.
 
-Backend: Python
+---
 
-Styling/UI: Modern responsive interface
+## 📁 Repository Structure
 
-Project Structure
-Plaintext
-cyber_scanner/
-│
-├── backend/          # Backend logic and API handlers
-├── frontend/         # User interface files and assets
-├── package.json      # Node.js dependencies and scripts
-└── README.md         # Project documentation
-Getting Started
-Prerequisites
-Python (v3.x recommended)
-
-Node.js & npm (for frontend dependencies)
-
-Installation & Setup
-Clone the repository:
-
-Bash
-git clone https://github.com/ayushi0618/cyber_scanner.git
-cd cyber_scanner
-Run the Backend:
-Navigate to the backend directory and set up your Python environment:
-
-Bash
-cd backend
-# Follow backend-specific installation steps (e.g., pip install -r requirements.txt)
-Run the Frontend:
-Navigate to the frontend directory and install dependencies if applicable:
-
-Bash
-cd ../frontend
-# Start your frontend server or open the interface
-Contributing
-Contributions, issues, and feature requests are welcome! Feel free to check the Issues page.
-
-License
-This project is open source and available under the MIT License.
+```text
+├── backend/            # Backend logic, security scanning scripts, and API handlers
+├── frontend/           # User interface files, assets, and views
+├── package.json        # Node.js dependencies and scripts
+└── README.md           # Project documentation
