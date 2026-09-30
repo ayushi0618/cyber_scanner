@@ -11,10 +11,12 @@ env/
 *.egg-info/
 *.egg
 
+
 # Flask / general Python logs
 *.log
 instance/
 .webassets-cache
+
 
 # VSCode / IDEs
 .vscode/
@@ -22,9 +24,11 @@ instance/
 *.sublime-project
 *.sublime-workspace
 
+
 # OS Files
 .DS_Store
 Thumbs.db
+
 
 # Node / Frontend
 frontend/node_modules/
@@ -33,5 +37,8 @@ frontend/.vite/
 frontend/package-lock.json
 frontend/.npm/
 
+
 # Uploads and temporary files (optional if you don't want to track)
 backend/uploads/
+node_modules/
+*.db
