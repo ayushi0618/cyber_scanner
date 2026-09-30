@@ -21,12 +21,16 @@
 
     <section class="scan-section">
         <h1>Upload Your File or Folder</h1>
+        <p class="hint">Upload a <strong>.zip</strong> archive — the scanner currently supports ZIP files.</p>
         <form id="upload-form">
-            <input type="file" id="file-input" name="file" required>
+            <input type="file" id="file-input" name="file" accept=".zip" required>
             <button type="submit" class="btn">Scan</button>
         </form>
         <div id="scan-results"></div>
     </section>
 
+    <footer>
+        <p>&copy; 2025 CyberScanner. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>
