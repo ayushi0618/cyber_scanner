@@ -3,34 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyber Scanner - Scan</title>
+    <title>Cyber Scanner — New Scan</title>
+    <meta name="description" content="Upload a ZIP archive and run a static vulnerability scan.">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/main.js" defer></script>
     <script src="js/scan.js" defer></script>
 </head>
 <body>
     <nav class="navbar">
-        <div class="logo">CyberScanner</div>
+        <a class="logo" href="index.html">&gt; cyber_scanner<span class="cursor">_</span></a>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="scan.html" class="active">Scan</a></li>
+            <li><a href="scan.html">Scan</a></li>
             <li><a href="dashboard.html">Dashboard</a></li>
             <li><a href="history.html">History</a></li>
+            <li><a href="about.html">About</a></li>
         </ul>
     </nav>
 
-    <section class="scan-section">
-        <h1>Upload Your File or Folder</h1>
-        <p class="hint">Upload a <strong>.zip</strong> archive — the scanner currently supports ZIP files.</p>
-        <form id="upload-form">
-            <input type="file" id="file-input" name="file" accept=".zip" required>
-            <button type="submit" class="btn">Scan</button>
-        </form>
-        <div id="scan-results"></div>
-    </section>
+    <main class="wrap">
+        <h1 class="page-title"><span class="prompt">$</span> new_scan</h1>
+        <p class="page-sub">Drop a <strong>.zip</strong> of your codebase. The engine statically analyzes Python, JavaScript/TypeScript, Java, PHP, Go and more — then scores it and shows every finding with a fix.</p>
+
+        <div class="panel">
+            <form id="upload-form">
+                <div class="dropzone" id="dropzone">
+                    <span class="dz-icon">📦</span>
+                    <div>
+                        <input type="file" id="file-input" name="file" accept=".zip" required>
+                    </div>
+                    <p>…or drag &amp; drop a <strong>.zip</strong> archive here</p>
+                    <div class="file-name" id="file-name"></div>
+                    <div style="margin-top:16px">
+                        <button type="submit" class="btn" id="scan-btn">▶ Run scan</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div id="scan-results" aria-live="polite"></div>
+    </main>
 
     <footer>
-        <p>&copy; 2025 CyberScanner. All Rights Reserved.</p>
+        <p><span class="sig">&gt;_</span> Cyber Scanner · static analysis for safer code · © 2026</p>
     </footer>
 </body>
 </html>

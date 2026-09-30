@@ -3,44 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyber Scanner - Home</title>
+    <title>Cyber Scanner — Static Vulnerability Analysis</title>
+    <meta name="description" content="Upload a code archive and get a real static vulnerability analysis: security score, severity-ranked findings and remediation guidance.">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/main.js" defer></script>
 </head>
 <body>
     <nav class="navbar">
-        <div class="logo">CyberScanner</div>
+        <a class="logo" href="index.html">&gt; cyber_scanner<span class="cursor">_</span></a>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="scan.html">Scan</a></li>
             <li><a href="dashboard.html">Dashboard</a></li>
             <li><a href="history.html">History</a></li>
+            <li><a href="about.html">About</a></li>
         </ul>
     </nav>
 
     <header class="hero">
-        <h1 class="hero-title">Protect Your System <span class="glow">From Threats</span></h1>
-        <p class="hero-sub">Scan files, monitor history, and get real-time insights</p>
-        <a href="scan.html" class="btn">Start Scanning</a>
+        <div class="kicker">// static vulnerability analysis</div>
+        <h1>Find the flaws<br>before <span class="glow">attackers</span> do.</h1>
+        <p class="lead">Upload a <strong>.zip</strong> of your codebase. Cyber Scanner statically analyzes every source file for injection flaws, hardcoded secrets, weak crypto and dangerous misconfigurations — then scores it and tells you exactly how to fix each issue.</p>
+        <a href="scan.html" class="btn">$ initiate_scan --target your_repo.zip</a>
+
+        <div class="terminal" aria-hidden="true">
+            <div class="term-bar">
+                <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+                <span class="term-title">scanner — live analysis</span>
+            </div>
+            <div class="term-body"><span class="p">$</span> cyber_scanner --target payments-api.zip
+<span class="info">[+] extracting 47 source files…</span>
+<span class="info">[+] running 22 detection rules…</span>
+<span class="bad">[!] CRITICAL  app/config.py:12 — Exposed AWS Access Key</span>
+<span class="warn">[!] HIGH      app/auth.py:38 — SQL Injection</span>
+<span class="warn">[!] HIGH      app/utils.py:91 — Eval Usage</span>
+<span class="ok">[✓] 44 files clean</span>
+<span class="p">$</span> security score: <span class="bad">34/100</span> <span class="warn">(grade F)</span> — 3 findings need attention</div>
+        </div>
     </header>
 
     <section class="features">
         <div class="feature-card">
-            <h2>Fast Scanning</h2>
-            <p>Quickly scan uploaded files for malware or suspicious content.</p>
+            <span class="f-icon">🛰️</span>
+            <h3>Real detection engine</h3>
+            <p>22 pattern-based rules hunt for hardcoded secrets, eval/exec, shell injection, SQLi, XSS sinks, weak hashes, insecure deserialization and more — with file and line numbers.</p>
         </div>
         <div class="feature-card">
-            <h2>Dashboard Insights</h2>
-            <p>Visualize your scans with charts and detailed analytics.</p>
+            <span class="f-icon">📊</span>
+            <h3>Security score + grade</h3>
+            <p>Every scan gets a severity-weighted 0–100 score and an A–F grade, so you can track whether your codebase is getting safer over time.</p>
         </div>
         <div class="feature-card">
-            <h2>History</h2>
-            <p>Keep track of all past scans and results in one place.</p>
+            <span class="f-icon">🛠️</span>
+            <h3>Fix guidance, not just flags</h3>
+            <p>Each finding ships with concrete remediation steps — parameterized queries instead of string-built SQL, secrets managers instead of hardcoded keys.</p>
+        </div>
+        <div class="feature-card">
+            <span class="f-icon">📈</span>
+            <h3>Trends &amp; history</h3>
+            <p>Every scan is persisted. The dashboard charts severity distribution, score trends and your most vulnerable files across all scans.</p>
+        </div>
+        <div class="feature-card">
+            <span class="f-icon">🧾</span>
+            <h3>Exportable reports</h3>
+            <p>Download any scan as a JSON report — findings, severities, snippets and remediation — ready to attach to a ticket or audit.</p>
+        </div>
+        <div class="feature-card">
+            <span class="f-icon">🔒</span>
+            <h3>Private by design</h3>
+            <p>Analysis runs on the server and uploaded archives are deleted right after scanning. No code is stored — only the findings report.</p>
+        </div>
+    </section>
+
+    <section class="wrap narrow">
+        <div class="panel">
+            <h2>$ how_it_works</h2>
+            <div class="how-steps">
+                <div class="how-step">
+                    <span class="n">01</span>
+                    <p>Zip your project and drop it on the <code>scan</code> page. Python, JS/TS, Java, PHP, Go and more are analyzed.</p>
+                </div>
+                <div class="how-step">
+                    <span class="n">02</span>
+                    <p>The engine matches <code>22 detection rules</code> against every line, skipping vendored and minified code.</p>
+                </div>
+                <div class="how-step">
+                    <span class="n">03</span>
+                    <p>Get a <code>0–100 score</code>, severity-ranked findings with fixes, and a downloadable report.</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2025 CyberScanner. All Rights Reserved.</p>
+        <p><span class="sig">&gt;_</span> Cyber Scanner · static analysis for safer code · © 2026</p>
     </footer>
 </body>
 </html>

@@ -1,7 +1,9 @@
-// Highlight active link
-const links = document.querySelectorAll('.nav-links a');
-links.forEach(link => {
-    if(link.href === window.location.href){
-        link.classList.add('active');
-    }
-});
+// Shared UI behavior: active nav link + footer year.
+(function () {
+  const links = document.querySelectorAll(".nav-links a");
+  const here = window.location.pathname.split("/").pop() || "index.html";
+  links.forEach((link) => {
+    const target = (link.getAttribute("href") || "").split("/").pop();
+    if (target === here) link.classList.add("active");
+  });
+})();

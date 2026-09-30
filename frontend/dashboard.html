@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyber Scanner - Dashboard</title>
+    <title>Cyber Scanner — Dashboard</title>
+    <meta name="description" content="Security analytics across all your scans: severity distribution, score trends, most vulnerable files.">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/main.js" defer></script>
@@ -11,28 +12,53 @@
 </head>
 <body>
     <nav class="navbar">
-        <div class="logo">CyberScanner</div>
+        <a class="logo" href="index.html">&gt; cyber_scanner<span class="cursor">_</span></a>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="scan.html">Scan</a></li>
-            <li><a href="dashboard.html" class="active">Dashboard</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
             <li><a href="history.html">History</a></li>
+            <li><a href="about.html">About</a></li>
         </ul>
     </nav>
 
-    <section class="dashboard">
-        <h1>Scan Analytics</h1>
-        <p class="hint">Threat trends across your recent scans.</p>
-        <div class="chart-container">
-            <canvas id="barChart"></canvas>
+    <main class="wrap">
+        <h1 class="page-title"><span class="prompt">$</span> threat_dashboard</h1>
+        <p class="page-sub">Security posture across every scan you've run. Run a <a href="scan.html">new scan</a> to add data.</p>
+
+        <div id="dash-error"></div>
+
+        <div class="stat-grid" id="stat-grid" style="display:none">
+            <div class="stat-card score"><div class="s-num" id="st-scans">0</div><div class="s-label">Total scans</div></div>
+            <div class="stat-card score"><div class="s-num" id="st-avgscore">0</div><div class="s-label">Avg score</div></div>
+            <div class="stat-card critical"><div class="s-num" id="st-critical">0</div><div class="s-label">Critical</div></div>
+            <div class="stat-card high"><div class="s-num" id="st-high">0</div><div class="s-label">High</div></div>
+            <div class="stat-card medium"><div class="s-num" id="st-medium">0</div><div class="s-label">Medium</div></div>
+            <div class="stat-card low"><div class="s-num" id="st-low">0</div><div class="s-label">Low</div></div>
         </div>
-        <div class="chart-container">
-            <canvas id="pieChart"></canvas>
+
+        <div class="chart-grid" id="chart-grid" style="display:none">
+            <div class="chart-box">
+                <h3>// findings_by_severity</h3>
+                <canvas id="sevChart"></canvas>
+            </div>
+            <div class="chart-box">
+                <h3>// security_score_trend</h3>
+                <canvas id="trendChart"></canvas>
+            </div>
+            <div class="chart-box" style="grid-column: 1 / -1;">
+                <h3>// most_vulnerable_files</h3>
+                <div id="top-files"></div>
+            </div>
         </div>
-    </section>
+
+        <div id="dash-empty" class="panel" style="display:none">
+            <div class="empty-state"><span class="big">📡</span>No scans yet. <a href="scan.html">Run your first scan</a> to populate this dashboard.</div>
+        </div>
+    </main>
 
     <footer>
-        <p>&copy; 2025 CyberScanner. All Rights Reserved.</p>
+        <p><span class="sig">&gt;_</span> Cyber Scanner · static analysis for safer code · © 2026</p>
     </footer>
 </body>
 </html>

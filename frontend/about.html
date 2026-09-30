@@ -3,35 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyber Scanner - About</title>
+    <title>Cyber Scanner — About the Engine</title>
+    <meta name="description" content="How Cyber Scanner's static analysis engine works: detection rules, severity model and scoring.">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/main.js" defer></script>
 </head>
 <body>
     <nav class="navbar">
-        <div class="logo">CyberScanner</div>
+        <a class="logo" href="index.html">&gt; cyber_scanner<span class="cursor">_</span></a>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="scan.html">Scan</a></li>
             <li><a href="dashboard.html">Dashboard</a></li>
             <li><a href="history.html">History</a></li>
+            <li><a href="about.html">About</a></li>
         </ul>
     </nav>
 
-    <section class="scan-section">
-        <h1>About CyberScanner</h1>
-        <p class="hint">A web-based cybersecurity scanning tool.</p>
-        <div class="feature-card" style="text-align: left; max-width: 640px; margin: 0 auto;">
-            <p>Upload a ZIP archive and CyberScanner will inspect every file inside it,
-            flag suspicious content, and score the findings by severity. Track your
-            scan history and visualize threat trends from the dashboard.</p>
-            <p style="margin-top: 12px;">Built with Python (Flask) on the backend and
-            plain HTML, CSS, and JavaScript on the frontend.</p>
+    <main class="wrap narrow">
+        <h1 class="page-title"><span class="prompt">$</span> about --engine</h1>
+        <p class="page-sub">What runs when you hit <strong>Run scan</strong>.</p>
+
+        <div class="panel">
+            <h2>$ how_it_works</h2>
+            <div class="how-steps" style="grid-template-columns: 1fr;">
+                <div class="how-step">
+                    <span class="n">01 · EXTRACT</span>
+                    <p>Your <code>.zip</code> is unpacked in memory. Vendored directories (<code>node_modules</code>, <code>.git</code>, <code>__pycache__</code>, <code>venv</code>…), minified bundles and lockfiles are skipped so results stay signal, not noise.</p>
+                </div>
+                <div class="how-step">
+                    <span class="n">02 · ANALYZE</span>
+                    <p>Every source file is matched against <code>22 detection rules</code> — regex-based static analysis tuned per language. Each hit records the file, line number and offending snippet.</p>
+                </div>
+                <div class="how-step">
+                    <span class="n">03 · SCORE</span>
+                    <p>Findings are weighted by severity — <code>Critical −25, High −10, Medium −5, Low −2</code> — into a <code>0–100 security score</code> with an A–F grade. The archive is deleted; only the findings report is kept.</p>
+                </div>
+            </div>
         </div>
-    </section>
+
+        <div class="panel">
+            <h2>$ detection_rules</h2>
+            <p class="page-sub" style="margin-bottom:14px">The rule set the engine ships with today:</p>
+            <div class="rule-grid">
+                <div class="rule-card"><span class="badge sev-Critical">CRITICAL</span><span class="r-name">Exposed AWS Access Key</span><p>Matches <code>AKIA…</code> key patterns anywhere in the archive.</p></div>
+                <div class="rule-card"><span class="badge sev-Critical">CRITICAL</span><span class="r-name">Exposed Private Key</span><p>Detects <code>BEGIN PRIVATE KEY</code> blocks committed to code.</p></div>
+                <div class="rule-card"><span class="badge sev-High">HIGH</span><span class="r-name">SQL Injection</span><p>String-built queries, <code>%</code>-formatting and f-string SQL in execute calls.</p></div>
+                <div class="rule-card"><span class="badge sev-High">HIGH</span><span class="r-name">Eval / Exec Usage</span><p>Dynamic code execution primitives in Python and JavaScript.</p></div>
+                <div class="rule-card"><span class="badge sev-High">HIGH</span><span class="r-name">Shell Execution</span><p><code>os.system()</code> and <code>subprocess</code> with <code>shell=True</code>.</p></div>
+                <div class="rule-card"><span class="badge sev-High">HIGH</span><span class="r-name">Dangerous innerHTML / document.write</span><p>XSS sinks that inject untrusted data into the DOM.</p></div>
+                <div class="rule-card"><span class="badge sev-High">HIGH</span><span class="r-name">Hardcoded Password / Secret</span><p>Credentials assigned as literals in source.</p></div>
+                <div class="rule-card"><span class="badge sev-High">HIGH</span><span class="r-name">TLS Verification Disabled</span><p><code>verify=False</code> — opens the door to MITM attacks.</p></div>
+                <div class="rule-card"><span class="badge sev-High">HIGH</span><span class="r-name">Insecure Deserialization</span><p><code>pickle.loads</code> on untrusted data → remote code execution.</p></div>
+                <div class="rule-card"><span class="badge sev-Medium">MEDIUM</span><span class="r-name">Hardcoded API Key</span><p>API keys and client secrets in source files.</p></div>
+                <div class="rule-card"><span class="badge sev-Medium">MEDIUM</span><span class="r-name">Weak Password Hashing</span><p><code>hashlib.md5/sha1</code> used for passwords — use bcrypt/Argon2.</p></div>
+                <div class="rule-card"><span class="badge sev-Medium">MEDIUM</span><span class="r-name">Insecure YAML Load</span><p><code>yaml.load()</code> without a safe loader.</p></div>
+                <div class="rule-card"><span class="badge sev-Medium">MEDIUM</span><span class="r-name">Debug Mode Enabled</span><p><code>debug=True</code> leaking traces and consoles in prod.</p></div>
+                <div class="rule-card"><span class="badge sev-Medium">MEDIUM</span><span class="r-name">Weak Randomness</span><p><code>random</code> module used where <code>secrets</code> belongs.</p></div>
+                <div class="rule-card"><span class="badge sev-Medium">MEDIUM</span><span class="r-name">Sensitive Data in Local Storage</span><p>Tokens persisted where any page script can read them.</p></div>
+                <div class="rule-card"><span class="badge sev-Low">LOW</span><span class="r-name">Insecure File Handling</span><p>Files opened for writing without a context manager.</p></div>
+            </div>
+        </div>
+
+        <div class="panel">
+            <h2>$ stack</h2>
+            <div class="stack-list">
+                <span class="stack">Python 3</span>
+                <span class="stack">Flask</span>
+                <span class="stack">SQLite</span>
+                <span class="stack">Vanilla JS</span>
+                <span class="stack">Chart.js</span>
+                <span class="stack">Regex static analysis</span>
+            </div>
+            <p class="page-sub" style="margin:14px 0 0">Built as a portfolio piece: a real detection pipeline (not mocked results) with persistent history and analytics — the kind of thing you can whiteboard in an interview.</p>
+        </div>
+    </main>
 
     <footer>
-        <p>&copy; 2025 CyberScanner. All Rights Reserved.</p>
+        <p><span class="sig">&gt;_</span> Cyber Scanner · static analysis for safer code · © 2026</p>
     </footer>
 </body>
 </html>
